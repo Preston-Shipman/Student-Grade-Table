@@ -1,7 +1,6 @@
-import React from 'react';
-import Rendy from './render-table-and-header';
-import { render } from 'react-dom';
-// import { render } from 'react-dom';
+import React, { Fragment } from 'react';
+import GradeTable from './grade-table';
+import Header from './header';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -10,34 +9,31 @@ class App extends React.Component {
     };
   }
 
-  render() {
-    return <Rendy />;
-  }
-
   componentDidMount() {
     this.app();
   }
 
   app() {
     fetch('/api/grades')
-      // method: 'GET',
-      // headers: {
-      //   'Content-Type': 'application/json'
-      // }
       .then(response => {
-        // eslint-disable-next-line no-console
-        console.log(response);
         return response.json();
       })
       .then(grades => {
-        this.setState({ grades }, // eslint-disable-next-line no-console
-          console.log(grades));
-        this.setState({ grades: this.state.grades.concat(grades) });
-        // eslint-disable-next-line no-console
-        console.log(this.state.grades);
+        this.setState({ grades }
+        );
+      })
+      .catch(err => {
+        alert('Error', err);
       });
   }
-}
 
-// componentWillUnmount(App);
+  render() {
+    return (
+      <Fragment>
+        <Header text="Student Grade Table" />
+        <GradeTable grades={ this.state.grades }/>
+      </Fragment>
+    );
+  }
+}
 export default App;

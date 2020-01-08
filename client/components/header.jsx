@@ -1,8 +1,10 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './components/app';
 
 function header(props) {
-  return (<header className="header">{ props.text }</header>);
+  return (
+    <div>
+      <h3 className={'header'}>{props.text}</h3>
+    </div>
+  );
 }
 export default header;

@@ -1,26 +1,8 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './components/app';
+import GradeRow from './gradeRow';
 
 function GradeTable(props) {
-  return (<table className="GradeTable">{props.text}</table>);
+  return (<table className="GradeTable">{props.grades.map(grade => <GradeRow key={grade.id} name={grade.name} course={grade.course} grade={grade.grade} id={grade.id} />)}</table>);
 }
 
-// class GradeTable extends React.Component {
-//   render() {
-//     return (<div className="table">
-//       <div className="row">
-//         <div className="col-sm">
-//           One of three columns
-//         </div>
-//         <div className="col-sm">
-//           One of three columns
-//         </div>
-//         <div className="col-sm">
-//           One of three columns
-//         </div>
-//       </div>
-//     </div>);
-//   }
-// }
 export default GradeTable;
