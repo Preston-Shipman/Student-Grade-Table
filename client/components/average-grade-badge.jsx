@@ -2,14 +2,10 @@ import React from 'react';
 
 function AverageGradeBadge(props) {
   return (
-    <div className={'container'}>
-      <div className={'row'}>
-        <h3>
-          {props.text}
-          <span className={'badge badge-secondary'}> {props.averageMethod} </span>
-        </h3>
-      </div>
-    </div>
+    <h3 className={'w-50'}>
+      {props.text}
+      <span className={'badge badge-secondary'}> {props.averageMethod} </span>
+    </h3>
   );
 }
 

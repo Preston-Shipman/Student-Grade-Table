@@ -47,12 +47,15 @@ class App extends React.Component {
     const averageMethod = this.averageGrades();
     return (
       <div className="container">
-        <Header text="Student Grade Table" />
-        <AverageGradeBadge averageMethod={averageMethod} text={'Student Average'}/>
-        <GradeTable grades={ this.state.grades } averageMethod={averageMethod}/>
+        <div className="row">
+          <Header className="w-50 p-3" text="Student Grade Table" />
+          <AverageGradeBadge className="w-50 p-3" averageMethod={averageMethod} text={'Student Average'} />
+          <GradeTable grades={this.state.grades} averageMethod={averageMethod} />
+        </div>
       </div>
     );
   }
+
 }
 
 export default App;
