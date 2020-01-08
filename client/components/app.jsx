@@ -35,7 +35,7 @@ class App extends React.Component {
       return null;
     } else {
       let gradeStart = 0;
-      gradeNumber.map(grade => {
+      gradeNumber.forEach(grade => {
         gradeStart += grade.grade;
       });
       return Math.ceil(gradeStart / gradeNumber.length);
@@ -45,8 +45,6 @@ class App extends React.Component {
 
   render() {
     const averageMethod = this.averageGrades();
-    // eslint-disable-next-line no-console
-    console.log(averageMethod);
     return (
       <div className="container">
         <Header text="Student Grade Table" />
@@ -56,7 +54,5 @@ class App extends React.Component {
     );
   }
 }
-
-// averageGrades return value as a prop inside header elemtn in renders return.
 
 export default App;
