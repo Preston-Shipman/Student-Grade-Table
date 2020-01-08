@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import GradeTable from './grade-table';
 import Header from './header';
 class App extends React.Component {
@@ -29,10 +29,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <div className="container">
         <Header text="Student Grade Table" />
         <GradeTable grades={ this.state.grades }/>
-      </Fragment>
+      </div>
     );
   }
 }
