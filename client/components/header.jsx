@@ -2,8 +2,8 @@ import React from 'react';
 
 function header(props) {
   return (
-    <div>
-      <h3 className={'header'}>{props.text}</h3>
+    <div className={'header w-50'}>
+      <h3>{props.text}</h3>
     </div>
   );
 }
