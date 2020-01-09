@@ -71,22 +71,30 @@ class GradeForm extends React.Component {
 
   render() {
     return (
-      < form onSubmit={this.handleSubmit}>
-        <div className="form-group fa fa-mb-3 fas fa-user" onChange={this.handleChangeName} value={this.state.name}>
-          <label htmlFor="exampleInputEmail1">Student Name</label>
-          <input type="text" className="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Student's Name" />
-        </div>
-        <div className="form-group fa fa-mb-3" onChange={this.handleChangeGrade} value={this.state.grade}>
-          <label htmlFor="exampleInputPassword1">Grade</label>
-          <input type="number" className="form-control" id="exampleInputPassword1" placeholder="Student's Grade" />
-        </div>
-        <div className="form-group fa fa-mb-3" onChange={this.handleChangeCourse} value={this.state.course}>
-          <label htmlFor="exampleInputPassword1">Course</label>
-          <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Student's Course" />
-        </div>
-        <div><button type="submit" className="btn btn-primary" >Add</button></div>
-        <div><button type="reset" className="btn btn-primary" onCancel={this.handleCancel}>Cancel</button></div>
-      </form >
+      // <div className="container">
+      //   <div className="row">
+      <div className="col-sm-3 col-12">
+        < form onSubmit={this.handleSubmit}>
+          <div className="form-group fas fa-user" onChange={this.handleChangeName} value={this.state.name}>
+            <label htmlFor="exampleInputEmail1">Student Name</label>
+            <input type="text" className="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Student's Name" />
+          </div>
+          <div className="form-group" onChange={this.handleChangeGrade} value={this.state.grade}>
+            <label htmlFor="exampleInputPassword1">Grade</label>
+            <input type="number" className="form-control" id="exampleInputPassword1" placeholder="Student's Grade" />
+          </div>
+          <div className="form-group" onChange={this.handleChangeCourse} value={this.state.course}>
+            <label htmlFor="exampleInputPassword1">Course</label>
+            <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Student's Course" />
+          </div>
+          <div className="d-flex">
+            <div><button type="submit" className="btn btn-primary m-1">Add</button></div>
+            <div><button type="reset" className="btn btn-primary m-1" onCancel={this.handleCancel}>Cancel</button></div>
+          </div>
+        </form >
+      </div>
+      //   </div>
+      // </div>
     );
   }
 }
