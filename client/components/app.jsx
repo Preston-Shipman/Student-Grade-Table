@@ -2,12 +2,14 @@ import React from 'react';
 import GradeTable from './grade-table';
 import Header from './header';
 import AverageGradeBadge from './average-grade-badge';
+import GradeForm from './grade-component';
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       grades: []
     };
+    this.addGrade = this.addGrade.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +28,6 @@ class App extends React.Component {
       .catch(err => {
         alert('Error', err);
       });
-
   }
 
   averageGrades() {
@@ -40,22 +41,53 @@ class App extends React.Component {
       });
       return Math.ceil(gradeStart / gradeNumber.length);
     }
+  }
 
+  addGrade(grades) {
+    fetch('/api/grades', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(grades)
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(grades => {
+        this.setState({ grades: this.state.grades.concat(grades) });
+      });
+  }
+
+  deleteGrade(grades) {
+    fetch('api/grades', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(grades)
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(grades => {
+        this.setState({ grades: this.state.grades });
+      });
   }
 
   render() {
     const averageMethod = this.averageGrades();
     return (
       <div className="container">
+        <div className="d-flex justify-content-between">
+          <Header text="Student Grade Table" />
+          <AverageGradeBadge averageMethod={averageMethod} text={'Student Average'} />
+        </div>
         <div className="row">
-          <Header className="w-50 p-3" text="Student Grade Table" />
-          <AverageGradeBadge className="w-50 p-3" averageMethod={averageMethod} text={'Student Average'} />
           <GradeTable grades={this.state.grades} averageMethod={averageMethod} />
+          <GradeForm onSubmit={this.addGrade} />
         </div>
       </div>
     );
   }
-
 }
 
 export default App;
