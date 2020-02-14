@@ -46,6 +46,20 @@ class App extends React.Component {
   addGrade(grades) {
     fetch('/api/grades', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(grades)
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(grades => {
+        this.setState({ grades: this.state.grades.concat(grades) });
+      });
+  }
+
+  deleteGrade(grades) {
+    fetch('api/grades', {
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -55,7 +69,7 @@ class App extends React.Component {
         return response.json();
       })
       .then(grades => {
-        this.setState({ grades: this.state.grades.concat(grades) });
+        this.setState({ grades: this.state.grades });
       });
   }
 

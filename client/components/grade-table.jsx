@@ -3,11 +3,6 @@ import GradeRow from './gradeRow';
 
 function GradeTable(props) {
   return (
-  // <div className="container">
-  //   <div className="row">
-
-    //   </div>
-    // </div>
     <div className="col-sm-9 col-12">
       <table className="GradeTable table table-dark">
         <thead>

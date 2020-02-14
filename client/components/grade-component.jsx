@@ -15,24 +15,6 @@ class GradeForm extends React.Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  // GradeForm() {
-  //   < form >
-  //     <div className="form-group fa fa-mb-3 fas fa-user">
-  //       <label htmlFor="exampleInputEmail1">Student Name</label>
-  //       <input type="text" className="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Student's Name" />
-  //     </div>
-  //     <div className="form-group fa fa-mb-3">
-  //       <label htmlFor="exampleInputPassword1">Grade</label>
-  //       <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Student's Grade" />
-  //     </div>
-  //     <div className="form-group fa fa-mb-3">
-  //       <label htmlFor="exampleInputPassword1">Course</label>
-  //       <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Student's Course" />
-  //     </div>
-  //     <div><button type="submit" className="btn btn-primary">Add</button></div>
-  //     <div><button type="cancel" className="btn btn-primary">Cancel</button></div>
-  //   </form >;
-  // }
   handleChangeName(event) {
     this.setState({
       name: event.target.value
@@ -71,8 +53,6 @@ class GradeForm extends React.Component {
 
   render() {
     return (
-      // <div className="container">
-      //   <div className="row">
       <div className="col-sm-3 col-12">
         < form onSubmit={this.handleSubmit}>
           <div className="form-group fas fa-user" onChange={this.handleChangeName} value={this.state.name}>
@@ -93,8 +73,6 @@ class GradeForm extends React.Component {
           </div>
         </form >
       </div>
-      //   </div>
-      // </div>
     );
   }
 }
