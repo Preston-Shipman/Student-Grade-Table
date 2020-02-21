@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import M from 'materialize-css';
 class Header extends React.Component {
 
   componentDidMount() {
-    M.navwrapper.init(this.navwrapper);
+    M.AutoInit();
   }
 
   render() {
     return (
       <div
-        ref={navwrapper => {
-          this.navwrapper = navwrapper;
-        }}
-        className="navwrapper"
+        // ref={navwrapper => {
+        //   this.navwrapper = navwrapper;
+        // }}
+        // className="nav-wrapper"
       >
-        <div className="navwrapper">
+        <div className={M.navwrapper}>
           <h3>{this.props.text}</h3>
         </div>
       </div>
