@@ -5,7 +5,7 @@ function TodoTable(props) {
   return (
     <nav>
       <div className="col-sm-9 col-12 nav-wrapper">
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
+        <ul id="nav-mobile" className=" hide-on-med-and-down">
           <li>
             <a>Task</a>
           </li>

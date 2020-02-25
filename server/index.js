@@ -31,10 +31,10 @@ app.get('/api/todos', (req, res, next) => {
 });
 
 app.post('/api/todos', (req, res, next) => {
-  const createTodo = `insert into todos ("taskName", "details")
-                        values($1, $2)
+  const createTodo = `insert into "todos" ("taskId", "taskName", "details", "iscompleted")
+                        values($1, $2, $3, $4)
                         returning *`;
-  const params = [req.body.taskName, req.body.details];
+  const params = [req.body.taskId, req.body.taskName, req.body.details, req.body.iscompleted];
   db.query(createTodo, params)
     .then(result => {
       res.status(201).json(result.rows[0]);
