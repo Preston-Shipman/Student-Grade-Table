@@ -8,16 +8,17 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div
+      <nav
         // ref={navwrapper => {
         //   this.navwrapper = navwrapper;
         // }}
         // className="nav-wrapper"
       >
-        <div className={M.navwrapper}>
+        <div className="nav-wrapper text-center">
+          <h1 className="center-align">My Tasks</h1>
           <h3>{this.props.text}</h3>
         </div>
-      </div>
+      </nav>
     );
   }
 

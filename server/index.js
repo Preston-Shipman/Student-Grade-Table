@@ -1,11 +1,9 @@
 require('dotenv/config');
 const express = require('express');
-
 const db = require('./database');
 const ClientError = require('./client-error');
 const app = express();
 app.use(express.json());
-
 app.get('/api/health-check', (req, res, next) => {
   db.query("select 'successfully connected' as \"message\"")
     .then(result => res.json(result.rows[0]))

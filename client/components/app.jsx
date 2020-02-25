@@ -61,16 +61,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="d-flex justify-content-between">
-          <Header text="My Tasks" />
-        </div>
-        <div className="row">
-          <TodoTable
-            todos={this.state.todos}
-          />
-          <TodoForm onSubmit={this.addTodo} />
-        </div>
+      <div>
+        <Header />
+        <TodoTable todos={this.state.todos} />
+        <TodoForm todos={this.state.todos} onSubmit={this.addTodo} />
       </div>
     );
   }
