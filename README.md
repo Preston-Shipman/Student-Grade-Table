@@ -1,7 +1,7 @@
 # ToDo
 A CRUD task management system written with:
 - React.js,
-- Materialize CSS,
+- Bootstrap,
 - Node.js,
 - Express,
 - PostgreSQL
